@@ -8,10 +8,10 @@
 import NavBar from '../components/NavBar.vue';
 
 export default {
-  name: "FillBlankScreen",
+  name: 'BlankPageScreen', 
   components: {
     NavBar,
-  }  
+  }
 }
 </script>
 
