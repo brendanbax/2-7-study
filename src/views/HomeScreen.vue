@@ -22,6 +22,7 @@
 
 <script>
   export default {
+    name: 'HomeScreen',
     data() {
       return {
         translation: this.$store.state.translation,

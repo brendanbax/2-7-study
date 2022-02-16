@@ -1,21 +1,18 @@
 <template>
-  <div>
-    <NavBar />
-    <div class="cards-container">
-      <div
-        v-for="(topic, idx) in topics" :key="'topic_' + idx"
-        class="card-wrapper"
-        @click="clickCard(idx)"
-      >
-        <div class="card" :class="{ 'flipped': selected === idx }">
-          <div class="card-face card-front">
-            <p>{{ topic.title }}</p>
-          </div>
-          <div class="card-face card-back">
-            <h3 class="title">{{ topic.title }}</h3>
-            <p class="text">{{ topic.text[translation] }}</p>
-            <p class="reference">{{ topic.reference }} ({{ translation }})</p>
-          </div>
+  <div class="cards-container">
+    <div
+      v-for="(topic, idx) in topics" :key="'topic_' + idx"
+      class="card-wrapper"
+      @click="clickCard(idx)"
+    >
+      <div class="card" :class="{ 'flipped': selected === idx }">
+        <div class="card-face card-front">
+          <p>{{ topic.title }}</p>
+        </div>
+        <div class="card-face card-back">
+          <h3 class="title">{{ topic.title }}</h3>
+          <p class="text">{{ topic.text[translation] }}</p>
+          <p class="reference">{{ topic.reference }} ({{ translation }})</p>
         </div>
       </div>
     </div>
@@ -23,15 +20,11 @@
 </template>
 
 <script>
-import NavBar from '../components/NavBar.vue';
 import contentMixin from '../mixins/contentMixin';
 
 export default {
   name: "FlashcardScreen",
   mixins: [contentMixin],
-  components: {
-    NavBar,
-  },
   data() {
     return {
       selected: null,
@@ -45,9 +38,6 @@ export default {
       }
       this.selected = index;
     },
-    closeCard() {
-      this.selected = null;
-    }
   }
 }
 </script>
