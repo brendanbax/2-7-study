@@ -32,10 +32,7 @@
 
 <style scoped>
 #fab {
-  position: fixed;
   cursor: pointer;
-  right: 1rem;
-  top: 1rem;
   width: 3rem;
   height: 3rem;
   background-color: var(--bg);

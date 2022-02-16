@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
+import BlankPageScreen from '../views/BlankPageScreen.vue';
 import HomeScreen from '../views/HomeScreen.vue';
 import FillBlankScreen from '../views/FillBlankScreen.vue';
 import FirstLetterScreen from '../views/FirstLetterScreen.vue';
@@ -26,6 +27,11 @@ const routes = [
     path: '/match',
     component: MatchScreen,
     name: 'Matching',
+  },
+  {
+    path: '/blank-page',
+    component: BlankPageScreen,
+    name: 'Blank Page',
   },
   {
     path: '/',

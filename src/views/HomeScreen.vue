@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1 id="title">2:7 Study</h1>
     <nav>
       <ul>
         <li class="menu-tile"><router-link to="/flash-cards">Flash Cards</router-link></li>
         <li class="menu-tile"><router-link to="/fill-in-the-blank">Fill In The Blank</router-link></li>
         <li class="menu-tile"><router-link to="/match">Verse Match</router-link></li>
         <li class="menu-tile"><router-link to="/first-letter">First Letter</router-link></li>
+        <li class="menu-tile"><router-link to="/blank-page">Blank Page</router-link></li>
       </ul>
     </nav>
     <div id="translation" >

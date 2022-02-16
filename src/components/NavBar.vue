@@ -1,24 +1,52 @@
 <template>
-  <nav id="back">
-    <router-link to="/"><span id="arrow">&#8249;</span><span>Home</span></router-link>
+  <nav id="nav">
+    <h1 v-if="showTitle" id="title">2:7 Study</h1>
+    <router-link v-else to="/">
+      <span id="arrow">&#8249;</span>
+      <span>Home</span>
+    </router-link>
+    <ThemeToggle />
   </nav>
 </template>
 
 <script>
-  export default {
-    name: "NavBar",
+import ThemeToggle from './ThemeToggle.vue';
+
+export default {
+  name: "NavBar",
+  components: {
+    ThemeToggle,
+  },
+  computed: {
+    showTitle() {
+      return this.$route.path === '/'
+    }
   }
+}
 </script>
 
 <style scoped>
-#back {
+#nav {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
-  color: var(--fg);
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg);
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--ghost);
 }
-#back a,
-#back a:visited {
+#title {
+  color: var(--fg);
+  margin: 0;
+}
+
+a,
+a:visited {
   color: inherit;
   text-decoration: none;
   display: flex;
