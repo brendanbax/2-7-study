@@ -168,6 +168,8 @@ input[type="text"] {
   border-bottom: .125rem solid var(--ghost);
   font-size: 1.25rem;
   line-height: 2;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 textarea {
   border: .125rem solid var(--ghost);
