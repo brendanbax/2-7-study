@@ -59,6 +59,6 @@ a:visited {
   margin-right: 0.5rem;
   line-height: 2.5rem;
   margin-bottom: .375rem;
-  color: var(--orange);
+  color: var(--accent);
 }
 </style>

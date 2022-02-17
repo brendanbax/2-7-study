@@ -73,7 +73,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: .125rem solid var(--orange);
+  border: .125rem solid var(--accent);
   border-radius: 1rem;
   backface-visibility: hidden;
   background-color: var(--bg);

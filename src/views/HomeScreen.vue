@@ -55,7 +55,7 @@ ul {
   margin: 0 1rem;
 }
 .menu-tile {
-  border: 2px solid var(--orange);
+  border: 2px solid var(--accent);
   border-radius: 1rem;
   color: var(--fg);
   text-align: center;

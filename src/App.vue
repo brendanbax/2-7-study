@@ -21,24 +21,26 @@ export default {
 </script>
 
 <style>
-:root {
-  --orange: #FFA62B;
-}
 .dark {
   --bg: #2b313b;
   --fg: #dfceb8;
   --ghost: #454d5a;
+  --accent: #FFA62B;
+  --success: #3ed478;
   --shadow: 0 1rem 1.5rem -.375rem rgba(0,0,0,0.5);
 }
 .light {
-  --bg: #EDF4ED;
+  --bg: #edf4ed;
   --fg: #3D5467;
-  --ghost: #e2e2e2;
+  --ghost: #b5b5bb;
+  --accent: #5643a8;
+  --success: #2f9255;
   --shadow: 0 0.875rem 1.25rem -.25rem rgba(0,0,0,0.23);
 }
 
 * {
   box-sizing: border-box;
+  transition: background 200ms, color 200ms;
 }
 
 body {
@@ -70,6 +72,10 @@ body {
   font-style: italic;
   font-size: 1rem;
   margin-top: 1rem;
+}
+
+button {
+  font-family: inherit;
 }
 
 @media screen and (max-width: 365px) {

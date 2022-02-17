@@ -34,8 +34,11 @@
   width: 3rem;
   height: 3rem;
   background-color: var(--bg);
-  border: 2px solid var(--orange);
+  border: 2px solid var(--accent);
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #icon {
   fill: var(--fg);

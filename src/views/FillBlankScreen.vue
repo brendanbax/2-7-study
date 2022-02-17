@@ -146,7 +146,7 @@ li:not(:first-child) {
 .arrow {
   font-size: 2rem;
   line-height: 1rem;
-  color: var(--orange);
+  color: var(--accent);
   margin-bottom: .125rem;
 }
 #modal {
