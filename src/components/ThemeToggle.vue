@@ -21,9 +21,7 @@
     },
     methods: {
       updateTheme() {
-        console.log(this.theme);
         this.theme = this.theme === 'dark' ? 'light' : 'dark';
-        console.log(this.theme);
         this.$store.dispatch('setTheme', this.theme);
       }
     }

@@ -14,11 +14,33 @@
     <div v-if="showModal" id="modal">
       <div id="scrim" />
       <div id="card">
-        <p class="title">{{ topics[selection].title }}</p>
-        <p class="text">{{ topics[selection].text[translation] }}</p>
-        <p class="reference">{{ topics[selection].reference }} ({{ translation }})</p>
+        <p class="title">
+          <span
+            v-for="(text, idx) in activeTitle"
+            :key="'title_' + idx"
+            :class="{ 'flipped' : text.flipped }"
+            @click="flipTitle(idx)"
+          >{{ text.text }}&nbsp;</span>
+        </p>
+        <p class="text wrap">
+          <span
+            v-for="(text, idx) in activeText"
+            :key="'text_' + idx"
+            :class="{ 'flipped' : text.flipped }"
+            @click="flipText(idx)"
+          >{{ text.text }}&nbsp;</span>
+        </p>
+        <p class="reference wrap">
+          <span
+            v-for="(text, idx) in activeRef"
+            :key="'ref_' + idx"
+            :class="{ 'flipped' : text.flipped }"
+            @click="flipRef(idx)"
+          >{{ text.text }}&nbsp;</span>
+          <span>({{ translation }})</span>
+        </p>
         <div id="action-row">
-          <button>Reveal All</button>
+          <button @click="flipAll">Reveal All</button>
           <button @click="hideContent">Close</button>
         </div>
       </div>
@@ -34,21 +56,41 @@ export default {
   mixins: [contentMixin],
   data() {
     return {
-      selection: null,
-      activeTitle: [],  // TODO: make arr of obj
-      activeText: [], // TODO: make arr of obj
-      activeRef: [],  // TODO: make arr of obj
+      activeTitle: [],
+      activeText: [],
+      activeRef: [],
       showModal: false,
     }
   },
   methods: {
     showContent(index) {
-      // const content = this.topics[index];
-      // TODO => convert contet.title to array of objects
-      // Each object should be { show: bool, text: 'some' }
-      // Split string to array, then map to return an array of objects
-      // For each element flip a coin to see if that text should be hidden when assigning value to show
-      this.selection = index;
+      const content = this.topics[index];
+
+      this.activeTitle = content.title.split(' ').map((el) => {
+        return {
+          text: el,
+          flipped: this.flipCoin(),
+        }
+      });
+
+      this.activeText = content.text[this.translation].split(' ').map((el) => {
+        return {
+          text: el,
+          flipped: this.flipCoin(),
+        }
+      });
+      
+      const book = content.reference.substring(0, content.reference.lastIndexOf(' ')).trim();
+      const chapter = content.reference.substring(content.reference.lastIndexOf(' '), content.reference.lastIndexOf(':') + 1).trim();
+      const verse = content.reference.substring(content.reference.lastIndexOf(':') + 1, content.reference.length).trim();
+      
+      this.activeRef = [book, chapter, verse].map((el) => {
+        return {
+          text: el,
+          flipped: this.flipCoin(),
+        }
+      });
+
       this.showModal = true;
     },
     hideContent() {
@@ -56,13 +98,29 @@ export default {
       this.showModal = false;
     },
     flipCoin() {
-      // TODO: add logic
-      return true;
+      const random = Math.floor(Math.random() * 100);
+      return random % 2 == 0;
     },
-    splitContent(str) {
-      // TODO: add logic
-      return str.split(' ');
-    }
+    flipTitle(index) {
+      this.activeTitle[index].flipped = false;
+    },
+    flipText(index) {
+      this.activeText[index].flipped = false;
+    },
+    flipRef(index) {
+      this.activeRef[index].flipped = false;
+    },
+    flipAll() {
+      this.activeTitle.forEach((el) => {
+        el.flipped = false;
+      });
+      this.activeText.forEach((el) => {
+        el.flipped = false;
+      });
+      this.activeRef.forEach((el) => {
+        el.flipped = false;
+      });
+    },
   }
 }
 </script>
@@ -112,6 +170,27 @@ li:not(:first-child) {
   margin: 0 1rem;
   border-radius: .5rem;
   padding: 0 1rem 1rem;
+  max-width: 480px;
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 2;
+}
+.flipped {
+  position: relative;
+  margin-right: 1ch;
+  cursor: pointer;
+}
+.flipped::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 0.375rem 0;
+  background: var(--bg);
+  border-bottom: .125rem solid var(--fg);
+}
+.flipped:hover::after {
+  background-color: var(--ghost);
 }
 #action-row {
   display: flex;
