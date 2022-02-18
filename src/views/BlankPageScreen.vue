@@ -10,7 +10,7 @@
           v-html="titleScore.value"
         />
       </div>
-      <input id="title" type="text" v-model="titleInput" />
+      <input id="title" type="text" v-model="titleInput" @keyup.enter="checkEntries" />
     </div>
     <div class="section">
       <div class="title-bar">
@@ -21,7 +21,7 @@
           v-html="textScore.value"
         />
       </div>
-      <textarea id="text" v-model="textInput" />
+      <textarea id="text" v-model="textInput" @keyup.enter="checkEntries" />
     </div>
     <div class="section">
       <div class="title-bar">
@@ -33,9 +33,9 @@
         />
       </div>
       <div id="input-grid">
-        <input id="ref" type="text" v-model="refInput.book" placeholder="book" />
-        <input id="ref" type="text" v-model="refInput.chapter" placeholder="ch" />
-        <input id="ref" type="text" v-model="refInput.verse" placeholder="verse" />
+        <input id="ref" type="text" v-model="refInput.book" placeholder="book" @keyup.enter="checkEntries" />
+        <input id="ref" type="text" v-model="refInput.chapter" placeholder="ch" @keyup.enter="checkEntries" />
+        <input id="ref" type="text" v-model="refInput.verse" placeholder="verse" @keyup.enter="checkEntries" />
       </div>
     </div>
     <button @click="checkEntries">Validate</button>
@@ -92,8 +92,10 @@ export default {
         return;
       }
 
+      const shortest = matchText.length < test.length ? matchText : test;
+
       let matches = 0;
-      for (let i = 0; i < test.length; i++) {
+      for (let i = 0; i < shortest.length; i++) {
         const a = matchText[i].replace(/\W/g, '').toLowerCase();  
         const b = test[i].replace(/\W/g, '').toLowerCase();
 
