@@ -2,7 +2,7 @@ module.exports = {
   pwa: {
     publicPath: process.env.NODE_ENV === 'production' ? '/2-7-study/' : '/',
     name: "2:7 Study",
-    themeColor: "#FFA62B",
+    themeColor: "#2b313b",
     display: 'standalone',
     backgroundColor: '#2b313b',
     icons: {
