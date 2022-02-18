@@ -161,7 +161,8 @@ li:not(:first-child) {
 #scrim {
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--bg);
+  opacity: 0.9;
 }
 #card {
   position: relative;
@@ -171,6 +172,8 @@ li:not(:first-child) {
   border-radius: .5rem;
   padding: 0 1rem 1rem;
   max-width: 480px;
+  border: .125rem solid var(--accent);
+  box-shadow: var(--shadow);
 }
 .wrap {
   display: flex;
@@ -202,7 +205,7 @@ button {
   color: var(--bg);
   border: none;
   border-radius: .25rem;
-  padding: .25rem .5rem;
+  padding: .5rem .75rem;
   font-size: .875rem;
   letter-spacing: 1px;
   cursor: pointer;
