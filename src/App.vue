@@ -2,17 +2,20 @@
   <div class="container">
     <NavBar />
     <router-view />
+    <AppPrompt />
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import AppPrompt from './components/AppPrompt.vue';
 
 export default {
   name: 'App',
   components: {
     NavBar,
-  },
+    AppPrompt
+},
   mounted() {
     this.$store.dispatch('getTheme');
     this.$store.dispatch('getTranslation');
