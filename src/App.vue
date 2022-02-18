@@ -76,6 +76,22 @@ body {
 
 button {
   font-family: inherit;
+  background-color: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: .25rem;
+  padding: .5rem .75rem;
+  font-size: .9rem;
+  letter-spacing: .5px;
+  cursor: pointer;
+}
+button:nth-child(2) {
+  margin-left: 1rem;
+}
+button.secondary {
+  background-color: var(--bg);
+  color: var(--accent);
+  border: .125rem solid var(--accent);
 }
 
 @media screen and (max-width: 365px) {

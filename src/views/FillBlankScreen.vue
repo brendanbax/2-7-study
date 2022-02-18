@@ -200,17 +200,4 @@ li:not(:first-child) {
   justify-content: space-between;
   margin-top: 2rem;
 }
-button {
-  background-color: var(--fg);
-  color: var(--bg);
-  border: none;
-  border-radius: .25rem;
-  padding: .5rem .75rem;
-  font-size: .875rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-button:nth-child(2) {
-  margin-left: 1rem;
-}
 </style>
