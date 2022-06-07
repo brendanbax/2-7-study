@@ -49,4 +49,14 @@ export default [
     },
     reference: 'Proverbs 3:5-6',
   },
+  {
+    id: 6,
+    title: 'Bonus',
+    text: {
+      ESV: 'Truly, truly, I say to you, whoever hears my word and believes him who sent me has eternal life. He does not come into judgment, but has passed from death to life.',
+      NIV: 'Very truly I tell you, whoever hears my word and believes him who sent me has eternal life and will not be judged but has crossed over from death to life.',
+      NKJV: 'Most assuredly, I say to you, he who hears My word and believes in Him who sent Me has everlasting life, and shall not come into judgment, but has passed from death into life.',
+    },
+    reference: 'John 5:24',
+  },
 ]
